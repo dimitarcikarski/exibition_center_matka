@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.VideoFragment"
+    android:background="@color/fragment_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/video_top_image"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/obnovlivi_izvori"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/play_button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/play_round_foreground"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/overlay"
+                android:adjustViewBounds="true"
+                android:layout_alignBottom="@+id/video_top_image"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ВИДЕА"
+            android:textSize="16dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-20dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_color"
+            android:fontFamily="@font/roboto_font"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/video_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>

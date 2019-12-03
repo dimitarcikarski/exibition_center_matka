@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="@string/exponates_menu_title"
+        android:icon="@drawable/baseline_home_black_48"/>
+
+    <item
+        android:id="@+id/menu_video"
+        android:title="@string/video_menu_title"
+        android:icon="@drawable/baseline_movie_black_48"/>
+
+    <item
+        android:id="@+id/menu_history"
+        android:title="@string/history_menu_title"
+        android:icon="@drawable/baseline_museum_black_48"/>
+
+    <item
+        android:id="@+id/menu_contact"
+        android:title="@string/contact_menu_title"
+        android:icon="@drawable/baseline_offline_bolt_black_48dp"/>
+
+
+
+
+
+</menu>

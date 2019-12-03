@@ -1,0 +1,79 @@
+{
+  "numberOfItems": 15,
+  "eksponati": [{
+      "title": "ЕЛЕКТРИФИКАЦИЈА НА МАКЕДОНИЈА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "elektrifikacija_na_makedonija"
+    },
+    {
+      "title": "УПОТРЕБА НА ЕЛЕКТРИЧНАТА ЕНЕРГИЈА ВО СВЕТОТ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "upotreba_na_elektricnata_energija_vo_svetot"
+    },
+    {
+      "title": "ЦИТАТИ НА НАУЧНИЦИ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "citati_na_naucnici"
+    },
+    {
+      "title": "КОНТРОЛНА СОБА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "kontrolna_soba"
+    },
+    {
+      "title": "МАШИНСКА САЛА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "masinska_sala"
+    },
+    {
+      "title": "ОРИГИНАЛЕН АЛАТ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "masinska_sala"
+    },
+    {
+      "title": "ЕЛЕКТРИФИКАЦИЈА НА МАКЕДОНИЈА - ТЕСТ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "elektrifikacija_na_mak_test"
+    },
+    {
+      "title": "ДИСПЕЧЕРСКА СОБА ОД СЕДУМДЕСЕТИТЕ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "dispecerska_tabla_od_sedumdesetite"
+    },
+    {
+      "title": "КОНТРОЛНА СОБА - ОДНАДВОР",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "kontrolna_soba_odnadvor"
+    },
+    {
+      "title": "ТРАНСФОРМАТОР",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "transformator"
+    },
+    {
+      "title": "ВЕТЕРНИЦА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "veternica"
+    },
+    {
+      "title": "МАКЕТА НА СИСТЕМ: ПРОИЗВОДСТВВО, ПРЕНОС, ДИСТРИБУЦИЈА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "maketa_na_sistem"
+    },
+    {
+      "title": "ПЛАЗМА ТОПКА",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "plazma_topka"
+    },
+    {
+      "title": "ПЛАЗМА ПАНЕЛИ",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "plazma_paneli"
+    },
+    {
+      "title": "ТРАНСФОРМАТОР",
+      "content": "This is the content of the items, bla bla bla",
+      "images": "transformator2"
+    }
+  ]
+}

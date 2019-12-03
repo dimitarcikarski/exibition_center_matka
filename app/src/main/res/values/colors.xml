@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#666666</color>
+    <color name="colorAccent">#000000</color>
+
+    <color name="color_black">#000000</color>
+    <color name="color_white">#ffffff</color>
+
+    <color name="bottomnav_background_color">#FFFFFF</color>
+    <color name="bottomnav_text_and_icon_color">#999999</color>
+    <color name="bottomnav_text_and_icon_color_selected">#EC1D24</color>
+    <color name="transparent_view_color">#26000000</color>
+
+    <color name="red">#EC1D24</color>
+    <color name="fragment_background">#ffffff</color>
+    <color name="text_color">#000000</color>
+
+    <color name="action_bar_color">#FFFFFF</color>
+</resources>
