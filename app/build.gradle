@@ -37,8 +37,7 @@ dependencies {
 
     implementation("com.squareup.okhttp3:okhttp:4.2.2")
 
-    implementation 'com.github.piasy:BigImageViewer:1.6.2'
-    implementation 'com.github.piasy:GlideImageLoader:1.6.2'
+    implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.0'
 
 
 }

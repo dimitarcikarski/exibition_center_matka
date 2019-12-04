@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.List;
+
 import mk.codeacademy.exibitioncentermatka.R;
 import mk.codeacademy.exibitioncentermatka.interfaces.ExponateListener;
 import mk.codeacademy.exibitioncentermatka.models.Exponate;
@@ -40,7 +42,9 @@ public class ExponateAdapter  extends RecyclerView.Adapter<ExponateAdapter.Expon
         Exponate exponate = data.get(position);
         holder.title.setText(exponate.getTitle());
 
-        holder.imageView.setImageResource(exponate.getImages());
+        String mDrawableName = exponate.getImages().get(0);
+        int resID = context.getResources().getIdentifier(mDrawableName , "drawable", context.getPackageName());
+        holder.imageView.setImageResource(resID);
     }
 
     @Override

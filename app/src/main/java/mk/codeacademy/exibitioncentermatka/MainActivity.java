@@ -7,8 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.github.piasy.biv.BigImageViewer;
-import com.github.piasy.biv.loader.glide.GlideImageLoader;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import mk.codeacademy.exibitioncentermatka.fragments.ContactFragment;
@@ -30,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNav = findViewById(R.id.bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(this);
         bottomNav.setSelectedItemId(R.id.menu_home);
-
-        BigImageViewer.initialize(GlideImageLoader.with(getApplicationContext()));
 
     }
 

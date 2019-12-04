@@ -58,5 +58,6 @@
     <string name="do_skopje">ДО СКОПЈЕ</string>
     <string name="do_matka">ДО МАТКА</string>
     <string name="title_activity_web">WebActivity</string>
+    <string name="title_activity_exponate_detail">ExponateDetailActivity</string>
 
 </resources>

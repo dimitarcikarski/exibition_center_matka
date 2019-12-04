@@ -17,4 +17,6 @@
     <color name="text_color">#000000</color>
 
     <color name="action_bar_color">#FFFFFF</color>
+
+    <color name="transparent_action_bar">#00FFFFFF</color>
 </resources>

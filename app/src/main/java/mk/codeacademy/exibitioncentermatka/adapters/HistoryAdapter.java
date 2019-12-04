@@ -12,16 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import mk.codeacademy.exibitioncentermatka.R;
+import mk.codeacademy.exibitioncentermatka.interfaces.HistoryListener;
 import mk.codeacademy.exibitioncentermatka.models.HistoryItem;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
 
     ArrayList<HistoryItem> data;
     LayoutInflater inflater;
+    HistoryListener listener;
 
-    public HistoryAdapter(Context context ,ArrayList<HistoryItem> data){
+    public HistoryAdapter(Context context ,ArrayList<HistoryItem> data ,HistoryListener listener){
         this.data = data;
         this.inflater = LayoutInflater.from(context);
+        this.listener = listener;
     }
 
     @NonNull
@@ -50,6 +53,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             super(itemView);
 
             imageView = itemView.findViewById(R.id.history_image);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.viewImages(getAdapterPosition());
+                }
+            });
         }
     }
 }

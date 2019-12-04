@@ -10,14 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.stfalcon.imageviewer.StfalconImageViewer;
+import com.stfalcon.imageviewer.loader.ImageLoader;
 
 import java.util.ArrayList;
 
 import mk.codeacademy.exibitioncentermatka.R;
 import mk.codeacademy.exibitioncentermatka.adapters.HistoryAdapter;
+import mk.codeacademy.exibitioncentermatka.interfaces.HistoryListener;
+import mk.codeacademy.exibitioncentermatka.models.Exponate;
 import mk.codeacademy.exibitioncentermatka.models.HistoryItem;
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment implements HistoryListener {
 
     public static final String TAG = HistoryFragment.class.getSimpleName();
 
@@ -43,7 +49,7 @@ public class HistoryFragment extends Fragment {
 
         getImages();
 
-        adapter = new HistoryAdapter(getActivity(), itemList);
+        adapter = new HistoryAdapter(getActivity(), itemList , this);
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -69,4 +75,14 @@ public class HistoryFragment extends Fragment {
 
     }
 
+    @Override
+    public void viewImages(int position) {
+        new StfalconImageViewer.Builder<>(getActivity(), itemList, new ImageLoader<HistoryItem>() {
+            @Override
+            public void loadImage(ImageView imageView, HistoryItem drawableRes) {
+                imageView.setImageResource(drawableRes.getImg());
+                imageView.setBackgroundColor(getResources().getColor(R.color.color_black));
+            }
+        }).withStartPosition(position).show();
+    }
 }

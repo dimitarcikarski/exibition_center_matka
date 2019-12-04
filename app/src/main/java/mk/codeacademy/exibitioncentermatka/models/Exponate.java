@@ -1,9 +1,11 @@
 package mk.codeacademy.exibitioncentermatka.models;
 
+import java.util.ArrayList;
+
 public class Exponate {
 
     String title , content;
-    int images;
+    ArrayList<String> images;
 
     public Exponate(){}
 
@@ -23,11 +25,11 @@ public class Exponate {
         this.content = content;
     }
 
-    public int getImages() {
+    public ArrayList<String> getImages() {
         return images;
     }
 
-    public void setImages(int images) {
+    public void setImages(ArrayList<String> images) {
         this.images = images;
     }
 }

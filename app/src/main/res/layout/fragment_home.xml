@@ -76,14 +76,7 @@
             android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
-    <com.github.piasy.biv.view.BigImageView
-        android:id="@+id/mBigImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:failureImage="@drawable/evn"
-        app:failureImageInitScaleType="center"
-        app:optimizeDisplay="true"
-        />
+
 
 
 
