@@ -1,20 +1,13 @@
 package mk.codeacademy.exibitioncentermatka.models;
 
+import java.util.ArrayList;
+
 public class Video {
 
-    String title ;
-    int image;
-    String videoPath;
+    String title , videoPath;
+    ArrayList<String> videoImages;
 
     public Video(){}
-
-    public String getVideoPath() {
-        return videoPath;
-    }
-
-    public void setVideoPath(String videoPath) {
-        this.videoPath = videoPath;
-    }
 
     public String getTitle() {
         return title;
@@ -24,11 +17,19 @@ public class Video {
         this.title = title;
     }
 
-    public int getImage() {
-        return image;
+    public String getVideoPath() {
+        return videoPath;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
+    }
+
+    public ArrayList<String> getVideoImages() {
+        return videoImages;
+    }
+
+    public void setVideoImages(ArrayList<String> videoImages) {
+        this.videoImages = videoImages;
     }
 }

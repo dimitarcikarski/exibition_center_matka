@@ -21,11 +21,13 @@ public class VideoAdapter  extends RecyclerView.Adapter<VideoAdapter.VideoViewHo
     ArrayList<Video> data;
     LayoutInflater inflater;
     VideoListener listener;
+    Context context;
 
     public VideoAdapter(Context context , ArrayList<Video> data , VideoListener listener){
         this.data = data;
         this.inflater = LayoutInflater.from(context);
         this.listener = listener;
+        this.context = context;
     }
 
     @NonNull
@@ -39,7 +41,9 @@ public class VideoAdapter  extends RecyclerView.Adapter<VideoAdapter.VideoViewHo
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
         Video video = data.get(position);
         holder.textView.setText(video.getTitle());
-        holder.imageView.setImageResource(video.getImage());
+        String mDrawableName = video.getVideoImages().get(0);
+        int resID = context.getResources().getIdentifier(mDrawableName , "drawable", context.getPackageName());
+        holder.imageView.setImageResource(resID);
     }
 
     @Override

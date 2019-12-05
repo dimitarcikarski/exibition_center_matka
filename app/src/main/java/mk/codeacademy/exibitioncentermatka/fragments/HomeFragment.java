@@ -2,7 +2,6 @@ package mk.codeacademy.exibitioncentermatka.fragments;
 
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,7 +20,6 @@ import com.stfalcon.imageviewer.loader.ImageLoader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import mk.codeacademy.exibitioncentermatka.ExponateDetailActivity;
 import mk.codeacademy.exibitioncentermatka.R;
 import mk.codeacademy.exibitioncentermatka.adapters.ExponateAdapter;
@@ -37,6 +35,7 @@ public class HomeFragment extends Fragment implements ExponateListener{
     RecyclerView recyclerView;
     ExponateAdapter adapter;
     ArrayList<Exponate> exponateList = new ArrayList<>();
+    ImageView home_top_image;
 
     Gson gson;
 
@@ -63,6 +62,22 @@ public class HomeFragment extends Fragment implements ExponateListener{
         adapter = new ExponateAdapter(getActivity() , exponateList , this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        home_top_image = view.findViewById(R.id.home_top_image);
+        home_top_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Integer[] RESOURCES = new Integer[]{R.drawable.home_exponat_img};
+
+                new StfalconImageViewer.Builder<>(getActivity(), RESOURCES, new ImageLoader<Integer>() {
+                    @Override
+                    public void loadImage(ImageView imageView, Integer drawableRes) {
+                        imageView.setImageResource(drawableRes);
+                        imageView.setBackgroundColor(getResources().getColor(R.color.color_black));
+                    }
+                }).show();
+            }
+        });
 
         return view;
     }
@@ -92,10 +107,10 @@ public class HomeFragment extends Fragment implements ExponateListener{
 
     }
 
-
     @Override
     public void viewExponate(Exponate exponate) {
         Intent i = new Intent(getActivity(), ExponateDetailActivity.class);
+        i.putExtra(ExponateDetailActivity.EXPONATE , exponate);
         startActivity(i);
     }
 }

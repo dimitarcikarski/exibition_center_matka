@@ -16,6 +16,8 @@ import android.widget.TextView;
 import mk.codeacademy.exibitioncentermatka.R;
 import mk.codeacademy.exibitioncentermatka.WebActivity;
 
+import static android.content.Intent.ACTION_VIEW;
+
 public class ContactFragment extends Fragment {
 
     public static final String TAG = ContactFragment.class.getSimpleName();
@@ -55,8 +57,7 @@ public class ContactFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String url = "https://www.google.com/maps/search/matka/@41.9528457,21.2979605,328m/data=!3m1!1e3";
-                Intent i = new Intent(getActivity(), WebActivity.class);
-                i.putExtra( URL ,url);
+                Intent i = new Intent(ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
             }
         });

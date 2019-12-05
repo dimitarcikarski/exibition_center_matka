@@ -1,10 +1,10 @@
 package mk.codeacademy.exibitioncentermatka.models;
 
-public class HistoryItem {
+public class TopItem {
 
     int img;
 
-    public HistoryItem(){}
+    public TopItem(){}
 
     public int getImg() {
         return img;

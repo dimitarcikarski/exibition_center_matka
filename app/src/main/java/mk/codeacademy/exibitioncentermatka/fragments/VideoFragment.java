@@ -14,12 +14,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import mk.codeacademy.exibitioncentermatka.R;
 import mk.codeacademy.exibitioncentermatka.adapters.VideoAdapter;
 import mk.codeacademy.exibitioncentermatka.interfaces.VideoListener;
+import mk.codeacademy.exibitioncentermatka.models.ResponseExponateModel;
 import mk.codeacademy.exibitioncentermatka.models.Video;
+import mk.codeacademy.exibitioncentermatka.models.VideosResponseModel;
 
 public class VideoFragment extends Fragment implements VideoListener {
 
@@ -29,7 +35,8 @@ public class VideoFragment extends Fragment implements VideoListener {
     VideoAdapter adapter;
     ArrayList<Video> videoList = new ArrayList<>();
     ImageView play_button;
-    String videoId = "ui2-ca-Cr7o";
+    String videoId = "qwkQVShCklw";
+    Gson gson;
 
     ImageView video_top_image;
 
@@ -53,7 +60,8 @@ public class VideoFragment extends Fragment implements VideoListener {
         recyclerView = view.findViewById(R.id.video_recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
 
-        getVideos();
+        loadVideos();
+        gson = new Gson();
         
         adapter = new VideoAdapter(getActivity(),videoList,this);
         recyclerView.setAdapter(adapter);
@@ -61,7 +69,10 @@ public class VideoFragment extends Fragment implements VideoListener {
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openYoutube(videoId);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoId));
+                intent.putExtra("VIDEO_ID", videoId);
+                intent.putExtra("force_fullscreen",true);
+                startActivity(intent);
             }
         });
 
@@ -69,14 +80,7 @@ public class VideoFragment extends Fragment implements VideoListener {
         return view;
     }
 
-    public void openYoutube(String videoId){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoId));
-        intent.putExtra("VIDEO_ID", videoId);
-        intent.putExtra("force_fullscreen",true);
-        startActivity(intent);
-    }
-
-    private void getVideos() {
+    /*private void getVideos() {
         Video video1 = new Video();
         video1.setImage(R.drawable.tesla_den);
         video1.setTitle("Денот на Тесла");
@@ -125,12 +129,39 @@ public class VideoFragment extends Fragment implements VideoListener {
         videoList.add(video6);
         videoList.add(video7);
         videoList.add(video8);
+    }*/
+
+    public String loadJSONFromAsset() {
+        String json;
+        try {
+            InputStream is = getActivity().getAssets().open("videos.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
+    private void loadVideos() {
+
+        String jsonString = loadJSONFromAsset();
+
+        VideosResponseModel videosResponseModel = gson.fromJson(jsonString , VideosResponseModel.class);
+        videoList = videosResponseModel.getVideos();
+
+    }
 
     @Override
     public void videoSwitch(Video video) {
-        video_top_image.setImageResource(video.getImage());
-        videoId = video.getVideoPath();
+        String videoId = video.getVideoPath();
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoId));
+        intent.putExtra("VIDEO_ID", videoId);
+        intent.putExtra("force_fullscreen",true);
+        startActivity(intent);
     }
 }

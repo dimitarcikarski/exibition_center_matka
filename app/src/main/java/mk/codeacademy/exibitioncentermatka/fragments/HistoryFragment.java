@@ -18,18 +18,18 @@ import com.stfalcon.imageviewer.loader.ImageLoader;
 import java.util.ArrayList;
 
 import mk.codeacademy.exibitioncentermatka.R;
-import mk.codeacademy.exibitioncentermatka.adapters.HistoryAdapter;
+import mk.codeacademy.exibitioncentermatka.adapters.TopItemAdapter;
 import mk.codeacademy.exibitioncentermatka.interfaces.HistoryListener;
-import mk.codeacademy.exibitioncentermatka.models.Exponate;
-import mk.codeacademy.exibitioncentermatka.models.HistoryItem;
+import mk.codeacademy.exibitioncentermatka.models.TopItem;
 
 public class HistoryFragment extends Fragment implements HistoryListener {
 
     public static final String TAG = HistoryFragment.class.getSimpleName();
 
     RecyclerView recyclerView;
-    HistoryAdapter adapter;
-    ArrayList<HistoryItem> itemList = new ArrayList<>();
+    TopItemAdapter adapter;
+    ArrayList<TopItem> itemList = new ArrayList<>();
+    ImageView top_image_history;
 
     public static HistoryFragment newInstance() {
         HistoryFragment fragment = new HistoryFragment();
@@ -49,37 +49,56 @@ public class HistoryFragment extends Fragment implements HistoryListener {
 
         getImages();
 
-        adapter = new HistoryAdapter(getActivity(), itemList , this);
+        adapter = new TopItemAdapter(getActivity(), itemList , this);
         recyclerView.setAdapter(adapter);
+
+        top_image_history = view.findViewById(R.id.history_top_image);
+        top_image_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new StfalconImageViewer.Builder<>(getActivity(), itemList, new ImageLoader<TopItem>() {
+                    @Override
+                    public void loadImage(ImageView imageView, TopItem drawableRes) {
+                        imageView.setImageResource(drawableRes.getImg());
+                        imageView.setBackgroundColor(getResources().getColor(R.color.color_black));
+                    }
+                }).withStartPosition(0).show();
+            }
+        });
 
         return view;
     }
 
     private void getImages() {
-        HistoryItem historyItem1 = new HistoryItem();
-        historyItem1.setImg(R.drawable.hystory_one);
+        TopItem topItem0 = new TopItem();
+        topItem0.setImg(R.drawable.hystory_top_image);
 
-        HistoryItem historyItem2 = new HistoryItem();
-        historyItem2.setImg(R.drawable.hystory_two);
+        TopItem topItem1 = new TopItem();
+        topItem1.setImg(R.drawable.hystory_one);
 
-        HistoryItem historyItem3 = new HistoryItem();
-        historyItem3.setImg(R.drawable.hystory_three);
+        TopItem topItem2 = new TopItem();
+        topItem2.setImg(R.drawable.hystory_two);
 
-        HistoryItem historyItem4 = new HistoryItem();
-        historyItem4.setImg(R.drawable.hystory_four);
+        TopItem topItem3 = new TopItem();
+        topItem3.setImg(R.drawable.hystory_three);
 
-        itemList.add(historyItem1);
-        itemList.add(historyItem2);
-        itemList.add(historyItem3);
-        itemList.add(historyItem4);
+        TopItem topItem4 = new TopItem();
+        topItem4.setImg(R.drawable.hystory_four);
+
+        itemList.add(topItem0);
+        itemList.add(topItem1);
+        itemList.add(topItem2);
+        itemList.add(topItem3);
+        itemList.add(topItem4);
 
     }
 
     @Override
     public void viewImages(int position) {
-        new StfalconImageViewer.Builder<>(getActivity(), itemList, new ImageLoader<HistoryItem>() {
+
+        new StfalconImageViewer.Builder<>(getActivity(), itemList, new ImageLoader<TopItem>() {
             @Override
-            public void loadImage(ImageView imageView, HistoryItem drawableRes) {
+            public void loadImage(ImageView imageView, TopItem drawableRes) {
                 imageView.setImageResource(drawableRes.getImg());
                 imageView.setBackgroundColor(getResources().getColor(R.color.color_black));
             }

@@ -43,6 +43,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
